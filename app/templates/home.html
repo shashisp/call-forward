@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h4>Call forwarding service<h4>
+  <div>
+    <form  name="input" action="/forward/" method="GET">
+	    <input type="text" name="mobile" placeholder="Mobile Number"><br>
+	    <input type="text" name="sip" placeholder="Your SIP">
+	    <input type="submit" value="Submit" class="btn">
+	</form>
+  </div>
+<br>
+
+{% endblock %}
+

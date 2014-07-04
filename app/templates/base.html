@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample Call Forwarding app</title> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"> 
+  </head>
+  <body>
+    
+    <div class="container-custom">
+      <div class="hero-unit">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+     
+  </body>
+</html>
