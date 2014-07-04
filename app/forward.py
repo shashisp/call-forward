@@ -20,12 +20,15 @@ def forward():
     CALLER_ID = request.args.get('caller_id')
     MOBILE = request.args.get('mobile')
     SIP = request.args.get('sip')
-
+    timeout_period = request.args.get('timeout')
+ 
     CALLER_NAME = "essp"
     response=plivo.Response()
-    response.addSpeak("Please wait while we are forwarding your call")
+    response.addWait(length=10)
+    response.addSpeak("Please wait we are forwarding your call")
     response.addDial(callerName=CALLER_NAME).addUser(SIP)
-    response.addDial(callerId=CALLER_ID).addNumber(MOBILE)
+    response.addDial(timeout = 10, callerId=CALLER_ID).addNumber(MOBILE)
+    response.addSpeak("Redirecting to Voicemail, Please leave your message")
     response=make_response(response.to_xml())
     response.headers['Content-Type']='text/xml'
     
