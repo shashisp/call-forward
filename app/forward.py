@@ -6,7 +6,7 @@ from app import app
 auth_id = "MAY2Q3ZGQ1MDIWODRJY2"
 auth_token = "YTRkMzAyMzc4ZTU1NDA4NWMyYzI1MjNlOWQ1OGY1"
 
-CALLER_ID = "14075303731"
+#CALLER_ID = "14075303731"
 
 p = plivo.RestAPI(auth_id, auth_token)   
  
@@ -17,9 +17,8 @@ def home():
 @app.route('/forward/', methods=['GET'])
 def forward():
 
-    #MOBILE = "9035162272"
+    CALLER_ID = request.args.get('caller_id')
     MOBILE = request.args.get('mobile')
-    #SIP = "sip:shashisp140702194927@phone.plivo.com"
     SIP = request.args.get('sip')
 
     CALLER_NAME = "essp"
@@ -34,16 +33,10 @@ def forward():
 	
 	
 	
-	# response.addSpeak("The number you're trying is not reachable at the moment. You are being redirected to the voice mail")
-	# response.addDial(callerId=CALLER_ID,
-			# action=BASE_URL+url_for('voice_mail'),
-			# method='GET').addNumber(VOICEMAIL_NUMBER)
 	
 	
   	
 	
     
-	#CALLER_NAME = "essp"
-	# CALLER_NAME,SIP,MOBILE,VOICEMAIL_NUMBER=get_details_from(plivo_number)
 	
    
